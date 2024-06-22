@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马来西亚-中国西北商务高峰会</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000033; /* 使用提供的蓝色背景 */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 30%;
+            margin: auto;
+            background-color: #800000;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2061E6;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2061E6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #3670e8;
+        }
+        .photos {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .photos img {
+            max-width: 30%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .banner {
+            background-color: #1c57cf;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .banner h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    </style>
+    <script>
+        const countryCodes = {
+            "中国": "+86",
+            "马来西亚": "+60",
+            "美国": "+1",
+            "加拿大": "+1",
+            "英国": "+44",
+            "澳大利亚": "+61",
+            // 添加其他国家和区号
+        };
+
+        function updateForm() {
+            const nationality = document.getElementById("nationality").value;
+            const passportField = document.getElementById("passport_field");
+            const icField = document.getElementById("ic_field");
+            const phoneField = document.getElementById("phone_number");
+
+            if (nationality === "中国") {
+                icField.style.display = "block";
+                passportField.style.display = "none";
+            } else {
+                icField.style.display = "none";
+                passportField.style.display = "block";
+            }
+
+            phoneField.value = countryCodes[nationality] || "";
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <h1>马来西亚-中国西北商务高峰会</h1>
+    </div>
+    <div class="photos">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+    </div>
+    <div class="container">
+        <h2>个人信息表单</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="eng_name">英文名:</label>
+                <input type="text" id="eng_name" name="eng_name">
+            </div>
+            <div class="form-group">
+                <label for="nationality">国籍:</label>
+                <select id="nationality" name="nationality" onchange="updateForm()">
+                    <option value="">请选择国籍</option>
+                    <option value="中国">中国</option>
+                    <option value="马来西亚">马来西亚</option>
+                    <option value="美国">美国</option>
+                    <option value="加拿大">加拿大</option>
+                    <option value="英国">英国</option>
+                    <option value="澳大利亚">澳大利亚</option>
+                    <!-- 添加其他国家 -->
+                </select>
+            </div>
+            <div class="form-group" id="passport_field">
+                <label for="passport_num">护照号码:</label>
+                <input type="text" id="passport_num" name="passport_num">
+            </div>
+            <div class="form-group" id="ic_field" style="display: none;">
+                <label for="ic_num">身份证号码:</label>
+                <input type="text" id="ic_num" name="ic_num">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">电话号码:</label>
+                <input type="text" id="phone_number" name="phone_number">
+            </div>
+            <div class="form-group">
+                <label for="email">电子邮件:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="company">公司:</label>
+                <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+                <label for="occupation">职业:</label>
+                <input type="text" id="occupation" name="occupation">
+            </div>
+            <div class="form-group">
+                <button type="submit">提交</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
